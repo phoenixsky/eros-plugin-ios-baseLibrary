@@ -156,7 +156,7 @@ WX_EXPORT_METHOD(@selector(scanImage::))
 - (void)viewController:(PBViewController *)viewController presentImageView:(UIImageView *)imageView forPageAtIndex:(NSInteger)index progressHandler:(void (^)(NSInteger, NSInteger))progressHandler {
     
     NSString *url = self.images[index]?:@"";
-    
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *imgUrl = [NSURL URLWithString:url];
     
     if (!imgUrl) {
